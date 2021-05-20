@@ -1,4 +1,4 @@
-'''
+"""
 NOTES:
 Prisoners_Dilemma.py allows hard-coding of different strategies
 for the Iterative Prisoners Dilemma, the classic game of game-theory.
@@ -8,18 +8,18 @@ to both players.
 Pressing the green arrow button will allow you to run the tournament and
 store the output in tournament.txt
 Teams should each code their strategies in their assigned section of code.
-'''
+"""
 
 import random
 def play_round(player1, player2, history1, history2, score1, score2):
-    '''
+    """
     Calls the get_action() function which will get the characters
     'c' or 'b' for collude or betray for each player.
     The history is provided in a string, e.g. 'ccb' indicates the player
     colluded in the first two rounds and betrayed in the most recent round.
     Returns a 4-tuple with updated histories and scores
     (history1, history2, score1, score2)
-    '''
+    """
 
     RELEASE = 0  # (R) when both players collude
     TREAT = 100  # (T) when you betray your partner
@@ -28,25 +28,25 @@ def play_round(player1, player2, history1, history2, score1, score2):
     # Keep T > R > P > S to be a Prisoner's Dilemma
     # Keep 2R > T + S to be an Iterative Prisoner's Dilemma
 
-    #Get the two players' actions and remember them.
+    # Get the two players' actions and remember them.
     action1 = get_action(player1, history1, history2, score1, score2)
     action2 = get_action(player2, history2, history1, score2, score1)
     if type(action1) != str:
         action1=' '
     if type(action2) != str:
         action2=' '
-    #Append the actions to the previous histories, to return
+    # Append the actions to the previous histories, to return
     new_history1 = history1 + action1
     new_history2 = history2 + action2
 
-    #Change scores based upon player actions
+    # Change scores based upon player actions
     if action1 not in ('c','b') or action2 not in ('c','b'):
-    # Do nothing if someone's code returns an improper action
+        # Do nothing if someone's code returns an improper action
         new_score1 = score1
         new_score2 = score2
 
     else:
-    #Both players' code provided proper actions
+        # Both players' code provided proper actions
         if action1 == 'c':
             if action2 == 'c':
                 # both players collude; get reward
@@ -411,7 +411,7 @@ def get_action(player, history, opponent_history, score, opponent_score, getting
 
 
 
-    #Team11: Ian Neyens
+    # Team11: Ian Neyens
     #######################################
 
 
